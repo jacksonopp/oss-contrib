@@ -7,12 +7,14 @@ export const formRouter = createRouter()
       .object({
         name: z.string(),
         username: z.string(),
+        email: z.string(),
       }),
     async resolve({input}) {
       return await prisma?.contributor.create({
         data: {
           name: input.name,
-          username: input.username
+          username: input.username,
+          email: input.email,
         }
       })
     }
