@@ -1,8 +1,6 @@
-import { Prisma } from "@prisma/client";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime";
 import { TRPCError } from "@trpc/server";
-import { z, ZodError } from "zod";
-import { trpc } from "../../utils/trpc";
+import { z } from "zod";
 import { createRouter } from "./context";
 
 export const formRouter = createRouter()
@@ -13,7 +11,8 @@ export const formRouter = createRouter()
         username: z.string(),
         email: z.string().email(),
       }),
-    async resolve({ input }) {
+    async resolve({ input, ctx }) {
+      console.log("input", input, ctx.req?.headers);
       try {
         return await prisma?.contributor.create({
           data: {
