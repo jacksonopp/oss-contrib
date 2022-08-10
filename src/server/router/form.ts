@@ -12,8 +12,8 @@ export const formRouter = createRouter()
         email: z.string().email(),
       }),
     async resolve({ input, ctx }) {
-      console.log("input", input, ctx.req?.headers);
       try {
+        console.log("adding user...")
         return await prisma?.contributor.create({
           data: {
             name: input.name,
@@ -22,6 +22,7 @@ export const formRouter = createRouter()
           }
         });
       } catch (e) {
+        console.log("failed to add user...", e);
         // prisma error
         if (e instanceof PrismaClientKnownRequestError) {
           console.log(e.code);
