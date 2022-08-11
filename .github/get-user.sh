@@ -6,7 +6,7 @@ USERNAME=$1
 echo "searching for user: $USERNAME"
 
 # save a curl request to the server with the username as the last part of the url
-res=$(curl -s "http://localhost:3000/api/user/username/$USERNAME")
+res=$(curl -s "https://contribute.jacksonoppenheim.com/api/user/username/$USERNAME")
 
 echo "result from server: $res"
 
