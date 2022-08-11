@@ -25,5 +25,6 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run the get user script
         run: | 
+          ls -l
           chmod +x ${GITHUB_WORKSPACE}/.github/get-user.sh
           ./github/get-user.sh ${{ github.event.pull_request.user.login }}
