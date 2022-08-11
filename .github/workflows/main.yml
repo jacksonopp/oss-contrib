@@ -28,5 +28,5 @@ jobs:
           ls -la
           cd .github
           ls -la
-#          chmod +x get-user.sh
+          chmod +x get-user.sh
 #          ./github/get-user.sh ${{ github.event.pull_request.user.login }}
